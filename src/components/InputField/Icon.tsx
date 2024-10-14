@@ -5,5 +5,5 @@ type IconElementProps = {
 }
 
 export function IconElement({ icon: Icon }: IconElementProps) {
-  return <Icon className="w-6 h-6 text-gray-200" />
+  return <Icon className="h-6 w-6 text-gray-200" />
 }

@@ -15,23 +15,23 @@ export function SignUp() {
   return (
     <>
       <Helmet title="Criar conta" />
-      <div className="w-[563px] flex flex-col gap-8 px-20 py-16 rounded-3xl bg-white my-6 mx-auto">
+      <div className="mx-auto my-6 flex w-[563px] flex-col gap-8 rounded-3xl bg-white px-20 py-16">
         <header className="flex flex-col gap-2">
-          <h1 className="font-title font-bold text-gray-500 text-2xl">
+          <h1 className="font-title text-2xl font-bold text-gray-500">
             Criar sua conta
           </h1>
-          <p className="font-base font-normal text-gray-300 text-sm">
+          <p className="font-base text-sm font-normal text-gray-300">
             Informe os seus dados pessoais e de acesso
           </p>
         </header>
 
         <form className="flex flex-col gap-8">
           <fieldset className="flex flex-col gap-5">
-            <legend className="font-title font-bold text-lg text-gray-500 mb-5">
+            <legend className="mb-5 font-title text-lg font-bold text-gray-500">
               Perfil
             </legend>
 
-            <div className="relative rounded-xl bg-orange-base/10 w-48 h-48 flex items-center justify-center focus-within:border-2 focus-within:border-orange-base">
+            <div className="relative flex h-48 w-48 items-center justify-center rounded-xl bg-orange-base/10 focus-within:border-2 focus-within:border-orange-base">
               <label htmlFor="avatar" className="sr-only">
                 Escolha uma imagem de perfil
               </label>
@@ -39,10 +39,10 @@ export function SignUp() {
                 type="file"
                 name="avatar"
                 id="avatar"
-                className="w-full h-full opacity-0 absolute hover:cursor-pointer"
+                className="absolute h-full w-full opacity-0 hover:cursor-pointer"
                 accept=".png, .jpeg, .jpg"
               />
-              <ImageUpIcon className="w-12 h-12 text-orange-base align-center" />
+              <ImageUpIcon className="align-center h-12 w-12 text-orange-base" />
             </div>
 
             <InputWrapper.Root>
@@ -63,7 +63,7 @@ export function SignUp() {
           </fieldset>
 
           <fieldset className="flex flex-col gap-5">
-            <legend className="font-title font-bold text-lg text-gray-500 mb-5">
+            <legend className="mb-5 font-title text-lg font-bold text-gray-500">
               Acesso
             </legend>
 
@@ -106,17 +106,17 @@ export function SignUp() {
             </InputWrapper.Root>
           </fieldset>
 
-          <button className="bg-orange-base text-white rounded-xl flex items-center justify-between p-5 mt-4 hover:bg-orange-base/95">
+          <button className="mt-4 flex items-center justify-between rounded-xl bg-orange-base p-5 text-white hover:bg-orange-base/95">
             Cadastrar
             <ArrowRight />
           </button>
         </form>
 
-        <div className="flex flex-col gap-5 mt-[132px]">
-          <p className="font-base font-normal text-normal text-gray-300">
+        <div className="mt-[132px] flex flex-col gap-5">
+          <p className="text-normal font-base font-normal text-gray-300">
             Já tem uma conta?
           </p>
-          <button className="bg-white text-orange-base border-2 border-orange-base rounded-xl flex items-center justify-between p-5">
+          <button className="flex items-center justify-between rounded-xl border-2 border-orange-base bg-white p-5 text-orange-base">
             Acessar
             <ArrowRight className="text-orange-base" />
           </button>

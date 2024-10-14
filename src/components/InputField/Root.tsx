@@ -6,7 +6,7 @@ type RootProps = {
 
 export function Root({ children }: RootProps) {
   return (
-    <div className="w-full border-b-2 py-2 focus-within:border-b-orange-base flex gap-2 items-center">
+    <div className="flex w-full items-center gap-2 border-b-2 py-2 focus-within:border-b-orange-base">
       {children}
     </div>
   )

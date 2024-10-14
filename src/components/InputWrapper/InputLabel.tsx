@@ -6,7 +6,7 @@ type InputLabelProps = {
 
 export function InputLabel({ children, ...rest }: InputLabelProps) {
   return (
-    <label className="text-xs font-base text-gray-300 uppercase" {...rest}>
+    <label className="font-base text-xs uppercase text-gray-300" {...rest}>
       {children}
     </label>
   )

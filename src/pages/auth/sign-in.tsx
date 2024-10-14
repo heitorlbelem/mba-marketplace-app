@@ -8,12 +8,12 @@ export function SignIn() {
   return (
     <>
       <Helmet title="Entrar" />
-      <div className="w-[563px] flex flex-col px-20 py-16 rounded-3xl bg-white my-6 mx-auto">
-        <header className="flex flex-col gap-2 mb-12">
-          <h1 className="font-title font-bold text-gray-500 text-2xl">
+      <div className="mx-auto my-6 flex w-[563px] flex-col rounded-3xl bg-white px-20 py-16">
+        <header className="mb-12 flex flex-col gap-2">
+          <h1 className="font-title text-2xl font-bold text-gray-500">
             Acessar sua conta
           </h1>
-          <p className="font-base font-normal text-gray-300 text-sm">
+          <p className="font-base text-sm font-normal text-gray-300">
             Informe seu e-mail e senha para entrar
           </p>
         </header>
@@ -40,18 +40,18 @@ export function SignIn() {
             </InputField.Root>
           </InputWrapper.Root>
 
-          <button className="bg-orange-base text-white rounded-xl flex items-center justify-between p-5 mt-9 hover:bg-orange-base/95">
+          <button className="mt-9 flex items-center justify-between rounded-xl bg-orange-base p-5 text-white hover:bg-orange-base/95">
             Acessar
-            <ArrowRightIcon className="w-5 h-5" />
+            <ArrowRightIcon className="h-5 w-5" />
           </button>
         </form>
-        <div className="flex flex-col gap-5 mt-[132px]">
-          <p className="font-base font-normal text-normal text-gray-300">
+        <div className="mt-[132px] flex flex-col gap-5">
+          <p className="text-normal font-base font-normal text-gray-300">
             Ainda não tem uma conta?
           </p>
-          <button className="bg-white text-orange-base border-2 border-orange-base rounded-xl flex items-center justify-between p-5">
+          <button className="flex items-center justify-between rounded-xl border-2 border-orange-base bg-white p-5 text-orange-base">
             Acessar
-            <ArrowRightIcon className="w-5 h-5" />
+            <ArrowRightIcon className="h-5 w-5" />
           </button>
         </div>
       </div>

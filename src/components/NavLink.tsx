@@ -12,7 +12,7 @@ export function NavLink({ children, ...rest }: NavLinkProps) {
     <Link
       {...rest}
       data-current={rest.to === pathname}
-      className="rounded-[10px] text-sm font-base flex items-center gap-2 py-2.5 px-4 data-[current=true]:text-orange-base data-[current=true]:bg-shape"
+      className="flex items-center gap-2 rounded-[10px] px-4 py-2.5 font-base text-sm data-[current=true]:bg-shape data-[current=true]:text-orange-base"
     >
       {children}
     </Link>

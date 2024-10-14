@@ -3,7 +3,7 @@ import { InputHTMLAttributes } from 'react'
 export function Field(props: InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
-      className="outline-none font-base font-normal text-base text-gray-200 flex-1"
+      className="flex-1 font-base text-base font-normal text-gray-200 outline-none"
       {...props}
     />
   )
