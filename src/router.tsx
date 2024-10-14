@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { Dashboard } from './pages/app/dashboard'
 import { Products } from './pages/app/products'
 import { SignIn } from './pages/auth/sign-in'
-import { SignUp } from './pages/auth/sign-out'
+import { SignUp } from './pages/auth/sign-up'
 
 export const router = createBrowserRouter([
   { path: '/', element: <Dashboard /> },
