@@ -5,7 +5,7 @@ import logo from '../../assets/logo.svg'
 
 export function AuthLayout() {
   return (
-    <div className="w-screen bg-background flex gap-6">
+    <div className="w-screen h-screen bg-background flex gap-6">
       <div>
         <div className="flex items-center gap-5 p-10">
           <img src={logo} alt="" />
