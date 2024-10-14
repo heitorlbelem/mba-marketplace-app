@@ -8,36 +8,36 @@ import {
 } from 'recharts'
 
 const chartData = [
-  { date: '01', receipt: 1942 },
-  { date: '02', receipt: 2240 },
-  { date: '03', receipt: 2371 },
-  { date: '04', receipt: 2371 },
-  { date: '05', receipt: 1234 },
-  { date: '06', receipt: 1077 },
-  { date: '07', receipt: 1144 },
-  { date: '08', receipt: 2440 },
-  { date: '09', receipt: 1685 },
-  { date: '10', receipt: 1899 },
-  { date: '11', receipt: 2397 },
-  { date: '12', receipt: 2232 },
-  { date: '13', receipt: 1556 },
-  { date: '14', receipt: 1358 },
-  { date: '15', receipt: 1347 },
-  { date: '16', receipt: 1575 },
-  { date: '17', receipt: 1479 },
-  { date: '18', receipt: 1562 },
-  { date: '19', receipt: 1939 },
-  { date: '20', receipt: 1199 },
-  { date: '21', receipt: 1500 },
-  { date: '22', receipt: 1138 },
-  { date: '23', receipt: 2485 },
-  { date: '24', receipt: 1155 },
-  { date: '25', receipt: 1724 },
-  { date: '26', receipt: 1110 },
-  { date: '27', receipt: 1368 },
-  { date: '28', receipt: 1253 },
-  { date: '29', receipt: 1289 },
-  { date: '30', receipt: 1873 },
+  { date: '01', amount: 1942 },
+  { date: '02', amount: 2240 },
+  { date: '03', amount: 2371 },
+  { date: '04', amount: 2371 },
+  { date: '05', amount: 1234 },
+  { date: '06', amount: 1077 },
+  { date: '07', amount: 1144 },
+  { date: '08', amount: 2440 },
+  { date: '09', amount: 1685 },
+  { date: '10', amount: 1899 },
+  { date: '11', amount: 2397 },
+  { date: '12', amount: 2232 },
+  { date: '13', amount: 1556 },
+  { date: '14', amount: 1358 },
+  { date: '15', amount: 1347 },
+  { date: '16', amount: 1575 },
+  { date: '17', amount: 1479 },
+  { date: '18', amount: 1562 },
+  { date: '19', amount: 1939 },
+  { date: '20', amount: 1199 },
+  { date: '21', amount: 1500 },
+  { date: '22', amount: 1138 },
+  { date: '23', amount: 2485 },
+  { date: '24', amount: 1155 },
+  { date: '25', amount: 1724 },
+  { date: '26', amount: 1110 },
+  { date: '27', amount: 1368 },
+  { date: '28', amount: 1253 },
+  { date: '29', amount: 1289 },
+  { date: '30', amount: 1873 },
 ]
 
 export function LineChartCard() {
@@ -56,19 +56,15 @@ export function LineChartCard() {
             tickLine={false}
             width={80}
             tickFormatter={(value: number) => {
-              return value.toLocaleString('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
-              })
+              return value.toLocaleString('pt-BR')
             }}
           />
           <CartesianGrid vertical={false} className="stroke-muted" />
 
           <Line
-            dot={false}
             type="monotone"
-            strokeWidth={2}
-            dataKey="receipt"
+            strokeWidth={3}
+            dataKey="amount"
             stroke="#5EC5FD"
           />
         </LineChart>

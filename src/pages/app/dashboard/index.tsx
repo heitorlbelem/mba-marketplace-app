@@ -1,3 +1,4 @@
+import { StoreIcon, TicketPercentIcon, UsersIcon } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
 import { LineChartCard } from './LineChartCard'
@@ -19,9 +20,22 @@ export function Dashboard() {
 
         <div className="flex items-center gap-6">
           <div className="flex flex-col gap-4">
-            <MetricCard />
-            <MetricCard />
-            <MetricCard />
+            <MetricCard
+              value={22}
+              description="Produtos vendidos"
+              icon={TicketPercentIcon}
+            />
+            <MetricCard
+              value={56}
+              description="Produtos anunciados"
+              icon={StoreIcon}
+            />
+            <MetricCard
+              value={1238}
+              description="Pessoas visitantes"
+              icon={UsersIcon}
+              variant="ghost"
+            />
           </div>
           <LineChartCard />
         </div>
