@@ -47,7 +47,7 @@ export function LineChartCard() {
         <h3 className="font-title text-lg font-bold">Visitantes</h3>
         <p>26 de junho - 25 de julho</p>
       </header>
-      <ResponsiveContainer width={800} height={266}>
+      <ResponsiveContainer width="100%" height={266}>
         <LineChart data={chartData} style={{ fontSize: 12 }}>
           <XAxis dataKey="date" tickLine={false} axisLine={false} dy={16} />
           <YAxis
