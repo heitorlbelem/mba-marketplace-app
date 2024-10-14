@@ -7,6 +7,7 @@ import {
   UserIcon,
 } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 
 import { InputField } from '../../components/InputField'
 import { InputWrapper } from '../../components/InputWrapper'
@@ -116,10 +117,13 @@ export function SignUp() {
           <p className="text-normal font-base font-normal text-gray-300">
             Já tem uma conta?
           </p>
-          <button className="flex items-center justify-between rounded-xl border-2 border-orange-base bg-white p-5 text-orange-base">
+          <Link
+            to="/sign-in"
+            className="flex items-center justify-between rounded-xl border-2 border-orange-base bg-white p-5 text-orange-base"
+          >
             Acessar
             <ArrowRight className="text-orange-base" />
-          </button>
+          </Link>
         </div>
       </div>
     </>
