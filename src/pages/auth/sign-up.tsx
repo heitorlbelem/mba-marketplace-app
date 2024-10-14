@@ -1,5 +1,6 @@
 import {
   ArrowRight,
+  ImageUpIcon,
   KeyRoundIcon,
   MailIcon,
   PhoneIcon,
@@ -29,6 +30,20 @@ export function SignUp() {
             <legend className="font-title font-bold text-lg text-gray-500 mb-5">
               Perfil
             </legend>
+
+            <div className="relative rounded-xl bg-orange-base/10 w-48 h-48 flex items-center justify-center focus-within:border-2 focus-within:border-orange-base">
+              <label htmlFor="avatar" className="sr-only">
+                Escolha uma imagem de perfil
+              </label>
+              <input
+                type="file"
+                name="avatar"
+                id="avatar"
+                className="w-full h-full opacity-0 absolute hover:cursor-pointer"
+                accept=".png, .jpeg, .jpg"
+              />
+              <ImageUpIcon className="w-12 h-12 text-orange-base align-center" />
+            </div>
 
             <InputWrapper.Root>
               <InputWrapper.Label htmlFor="name">Nome</InputWrapper.Label>
