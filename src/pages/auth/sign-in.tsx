@@ -1,11 +1,14 @@
 import { ArrowRightIcon, EyeIcon, KeyRoundIcon, MailIcon } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
+import { useNavigate } from 'react-router-dom'
 
 import { AuthFormHeader } from '../../components/AuthFormHeader'
 import { InputContainer } from '../../components/InputContainer'
 import { InputWrapper } from '../../components/InputWrapper'
 
 export function SignIn() {
+  const navigate = useNavigate()
+
   return (
     <>
       <Helmet title="Entrar" />
@@ -53,6 +56,7 @@ export function SignIn() {
           <button
             type="button"
             className="flex items-center justify-between rounded-lg border-2 border-orange-base bg-white p-5 text-orange-base"
+            onClick={() => navigate('/sign-up')}
           >
             Cadastrar
             <ArrowRightIcon />
