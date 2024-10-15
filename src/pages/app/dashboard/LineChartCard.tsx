@@ -1,8 +1,11 @@
+import { UsersIcon } from 'lucide-react'
 import {
   CartesianGrid,
   Line,
   LineChart,
   ResponsiveContainer,
+  Tooltip,
+  TooltipProps,
   XAxis,
   YAxis,
 } from 'recharts'
@@ -40,6 +43,26 @@ const chartData = [
   { date: '30', amount: 1873 },
 ]
 
+const CustomTooltip = ({
+  active,
+  payload,
+  label,
+}: TooltipProps<string, number>) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="flex flex-col gap-2 rounded-xl bg-white p-3 shadow-lg">
+        <p className="font-base text-[10px]">{label}</p>
+        <p className="flex items-center gap-2 text-xs text-gray-300">
+          <UsersIcon size={16} />
+          {payload[0].value} visitantes
+        </p>
+      </div>
+    )
+  }
+
+  return null
+}
+
 export function LineChartCard() {
   return (
     <div className="flex w-full flex-col gap-7 rounded-[20px] bg-white p-6">
@@ -59,10 +82,15 @@ export function LineChartCard() {
               return value.toLocaleString('pt-BR')
             }}
           />
-          <CartesianGrid vertical={false} className="stroke-muted" />
-
+          <CartesianGrid
+            stroke="#ccc"
+            strokeDasharray="15 15"
+            vertical={false}
+          />
+          <Tooltip content={<CustomTooltip />} />
           <Line
             type="monotone"
+            dot={false}
             strokeWidth={3}
             dataKey="amount"
             stroke="#5EC5FD"

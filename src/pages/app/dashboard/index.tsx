@@ -8,7 +8,7 @@ export function Dashboard() {
   return (
     <>
       <Helmet title="Página Inicial" />
-      <main className="mx-auto flex max-w-[1030px] flex-col gap-10 py-16">
+      <main className="mx-auto flex max-w-[1130px] flex-col gap-10 py-16">
         <div className="flex flex-col gap-2">
           <h1 className="font-title text-2xl font-bold leading-tight text-gray-500">
             Últimos 30 dias
