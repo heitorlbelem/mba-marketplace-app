@@ -98,6 +98,14 @@ export function SignUp() {
             <ArrowRightIcon />
           </button>
         </form>
+
+        <div className="mt-20 flex flex-col gap-5">
+          <p className="font-base text-base text-gray-300">Já tem uma conta?</p>
+          <button className="flex items-center justify-between rounded-lg border-2 border-orange-base bg-white p-5 text-orange-base">
+            Acessar
+            <ArrowRightIcon />
+          </button>
+        </div>
       </>
     </>
   )
