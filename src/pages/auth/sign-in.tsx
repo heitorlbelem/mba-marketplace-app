@@ -1,7 +1,7 @@
 import { ArrowRightIcon, EyeIcon, KeyRoundIcon, MailIcon } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
 
+import { AuthFormHeader } from '../../components/AuthFormHeader'
 import { InputContainer } from '../../components/InputContainer'
 import { InputWrapper } from '../../components/InputWrapper'
 
@@ -9,59 +9,56 @@ export function SignIn() {
   return (
     <>
       <Helmet title="Entrar" />
-      <div className="mx-auto my-6 flex w-[563px] flex-col rounded-3xl bg-white px-20 py-16">
-        <header className="mb-12 flex flex-col gap-2">
-          <h1 className="font-title text-2xl font-bold text-gray-500">
-            Acessar sua conta
-          </h1>
-          <p className="font-base text-sm font-normal text-gray-300">
-            Informe seu e-mail e senha para entrar
-          </p>
-        </header>
-        <form className="flex flex-col gap-5">
-          <InputWrapper.Root>
-            <InputWrapper.Label htmlFor="email">e-mail</InputWrapper.Label>
-            <InputContainer.Root>
-              <InputContainer.Icon icon={MailIcon} />
-              <InputContainer.TextField
-                placeholder="Seu e-mail cadastrado"
-                id="email"
-              />
-            </InputContainer.Root>
-          </InputWrapper.Root>
+      <>
+        <AuthFormHeader
+          pageTitle="Acesse sua conta"
+          pageDescription="Informe seu e-mail e senha para entrar"
+        />
+        <form className="flex flex-col gap-12">
+          <fieldset className="flex flex-col gap-5">
+            <InputWrapper.Root>
+              <InputWrapper.Label>e-mail</InputWrapper.Label>
+              <InputContainer.Root>
+                <InputContainer.Icon icon={MailIcon} />
+                <InputContainer.TextField placeholder="Seu e-mail cadastrado" />
+              </InputContainer.Root>
+            </InputWrapper.Root>
 
-          <InputWrapper.Root>
-            <InputWrapper.Label htmlFor="password">senha</InputWrapper.Label>
-            <InputContainer.Root>
-              <InputContainer.Icon icon={KeyRoundIcon} />
-              <InputContainer.TextField
-                placeholder="Sua senha de acesso"
-                id="password"
-              />
-              <InputContainer.Actions>
+            <InputWrapper.Root>
+              <InputWrapper.Label>Senha</InputWrapper.Label>
+              <InputContainer.Root>
+                <InputContainer.Icon icon={KeyRoundIcon} />
+                <InputContainer.TextField
+                  placeholder="Sua senha de acesso"
+                  type="password"
+                />
                 <InputContainer.Action icon={EyeIcon} />
-              </InputContainer.Actions>
-            </InputContainer.Root>
-          </InputWrapper.Root>
+              </InputContainer.Root>
+            </InputWrapper.Root>
+          </fieldset>
 
-          <button className="mt-9 flex items-center justify-between rounded-xl bg-orange-base p-5 text-white hover:bg-orange-base/95">
+          <button
+            type="submit"
+            className="flex items-center justify-between rounded-[10px] bg-orange-base p-5 text-white"
+          >
             Acessar
-            <ArrowRightIcon className="h-5 w-5" />
+            <ArrowRightIcon />
           </button>
         </form>
-        <div className="mt-[132px] flex flex-col gap-5">
-          <p className="text-normal font-base font-normal text-gray-300">
+
+        <div className="mt-[131px] flex flex-col gap-5">
+          <p className="font-base text-base text-gray-300">
             Ainda não tem uma conta?
           </p>
-          <Link
-            to="/sign-up"
-            className="flex items-center justify-between rounded-xl border-2 border-orange-base bg-white p-5 text-orange-base"
+          <button
+            type="button"
+            className="flex items-center justify-between rounded-lg border-2 border-orange-base bg-white p-5 text-orange-base"
           >
             Cadastrar
-            <ArrowRightIcon className="h-5 w-5" />
-          </Link>
+            <ArrowRightIcon />
+          </button>
         </div>
-      </div>
+      </>
     </>
   )
 }

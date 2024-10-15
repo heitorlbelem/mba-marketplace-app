@@ -5,22 +5,23 @@ import logo from '../../assets/logo.svg'
 
 export function AuthLayout() {
   return (
-    <div className="flex min-h-screen w-screen gap-6 bg-background">
-      <div className="flex flex-col p-10">
-        <div className="mb-20 flex items-center gap-5">
+    <div className="flex min-h-screen w-screen items-start gap-6 bg-background p-6">
+      <div className="flex flex-col gap-14">
+        <div className="flex items-center gap-5 p-4">
           <img src={logo} alt="" />
-          <div>
-            <h2 className="font-title text-xl font-bold text-gray-500">
-              Marketplace
-            </h2>
-            <p className="font-base text-base font-normal text-gray-400">
+          <h2 className="flex flex-col gap-1 font-title text-2xl font-bold text-gray-500">
+            Marketplace
+            <small className="font-base text-base font-normal text-gray-300">
               Painel de Vendedor
-            </p>
-          </div>
+            </small>
+          </h2>
         </div>
         <img src={background} alt="" className="max-w-[755px]" />
       </div>
-      <Outlet />
+
+      <main className="mx-auto flex flex-1 flex-col rounded-3xl bg-white px-20 py-[72px]">
+        <Outlet />
+      </main>
     </div>
   )
 }
