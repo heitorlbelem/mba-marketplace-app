@@ -1,7 +1,7 @@
 import { SearchIcon, TicketPercent } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
-import { InputField } from '../../../components/InputField'
+import { InputContainer } from '../../../components/InputContainer'
 import { Product } from './Product'
 
 export function Products() {
@@ -23,14 +23,14 @@ export function Products() {
               Filtrar
             </h3>
             <div className="mb-7 flex flex-col gap-5">
-              <InputField.Root>
-                <InputField.Icon icon={SearchIcon} />
-                <InputField.Field placeholder="Pesquisar" />
-              </InputField.Root>
-              <InputField.Root>
-                <InputField.Icon icon={TicketPercent} />
-                <InputField.Field placeholder="Status" />
-              </InputField.Root>
+              <InputContainer.Root>
+                <InputContainer.Icon icon={SearchIcon} />
+                <InputContainer.TextField placeholder="Pesquisar" />
+              </InputContainer.Root>
+              <InputContainer.Root>
+                <InputContainer.Icon icon={TicketPercent} />
+                <InputContainer.TextField placeholder="Status" />
+              </InputContainer.Root>
             </div>
             <button className="flex items-center justify-center rounded-xl bg-orange-base p-5 text-white">
               Aplicar filtro

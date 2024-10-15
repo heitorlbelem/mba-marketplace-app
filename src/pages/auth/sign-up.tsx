@@ -9,7 +9,7 @@ import {
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
-import { InputField } from '../../components/InputField'
+import { InputContainer } from '../../components/InputContainer'
 import { InputWrapper } from '../../components/InputWrapper'
 
 export function SignUp() {
@@ -48,18 +48,24 @@ export function SignUp() {
 
             <InputWrapper.Root>
               <InputWrapper.Label htmlFor="name">Nome</InputWrapper.Label>
-              <InputField.Root>
-                <InputField.Icon icon={UserIcon} />
-                <InputField.Field placeholder="Seu nome completo" id="name" />
-              </InputField.Root>
+              <InputContainer.Root>
+                <InputContainer.Icon icon={UserIcon} />
+                <InputContainer.TextField
+                  placeholder="Seu nome completo"
+                  id="name"
+                />
+              </InputContainer.Root>
             </InputWrapper.Root>
 
             <InputWrapper.Root>
               <InputWrapper.Label htmlFor="phone">Telefone</InputWrapper.Label>
-              <InputField.Root>
-                <InputField.Icon icon={PhoneIcon} />
-                <InputField.Field placeholder="(00) 00000-0000" id="phone" />
-              </InputField.Root>
+              <InputContainer.Root>
+                <InputContainer.Icon icon={PhoneIcon} />
+                <InputContainer.TextField
+                  placeholder="(00) 00000-0000"
+                  id="phone"
+                />
+              </InputContainer.Root>
             </InputWrapper.Root>
           </fieldset>
 
@@ -70,40 +76,40 @@ export function SignUp() {
 
             <InputWrapper.Root>
               <InputWrapper.Label htmlFor="email">E-mail</InputWrapper.Label>
-              <InputField.Root>
-                <InputField.Icon icon={MailIcon} />
-                <InputField.Field
+              <InputContainer.Root>
+                <InputContainer.Icon icon={MailIcon} />
+                <InputContainer.TextField
                   placeholder="Seu e-mail de acesso"
                   id="email"
                   type="email"
                 />
-              </InputField.Root>
+              </InputContainer.Root>
             </InputWrapper.Root>
 
             <InputWrapper.Root>
               <InputWrapper.Label htmlFor="password">Senha</InputWrapper.Label>
-              <InputField.Root>
-                <InputField.Icon icon={KeyRoundIcon} />
-                <InputField.Field
+              <InputContainer.Root>
+                <InputContainer.Icon icon={KeyRoundIcon} />
+                <InputContainer.TextField
                   placeholder="Senha de acesso"
                   id="password"
                   type="password"
                 />
-              </InputField.Root>
+              </InputContainer.Root>
             </InputWrapper.Root>
 
             <InputWrapper.Root>
               <InputWrapper.Label htmlFor="confirm-password">
                 Confirmar senha
               </InputWrapper.Label>
-              <InputField.Root>
-                <InputField.Icon icon={KeyRoundIcon} />
-                <InputField.Field
+              <InputContainer.Root>
+                <InputContainer.Icon icon={KeyRoundIcon} />
+                <InputContainer.TextField
                   placeholder="Confirme a senha"
                   id="confirm-password"
                   type="password"
                 />
-              </InputField.Root>
+              </InputContainer.Root>
             </InputWrapper.Root>
           </fieldset>
 

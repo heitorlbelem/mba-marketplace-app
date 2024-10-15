@@ -2,7 +2,7 @@ import { ArrowRightIcon, KeyRoundIcon, MailIcon } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
-import { InputField } from '../../components/InputField'
+import { InputContainer } from '../../components/InputContainer'
 import { InputWrapper } from '../../components/InputWrapper'
 
 export function SignIn() {
@@ -21,24 +21,24 @@ export function SignIn() {
         <form className="flex flex-col gap-5">
           <InputWrapper.Root>
             <InputWrapper.Label htmlFor="email">e-mail</InputWrapper.Label>
-            <InputField.Root>
-              <InputField.Icon icon={MailIcon} />
-              <InputField.Field
+            <InputContainer.Root>
+              <InputContainer.Icon icon={MailIcon} />
+              <InputContainer.TextField
                 placeholder="Seu e-mail cadastrado"
                 id="email"
               />
-            </InputField.Root>
+            </InputContainer.Root>
           </InputWrapper.Root>
 
           <InputWrapper.Root>
             <InputWrapper.Label htmlFor="password">senha</InputWrapper.Label>
-            <InputField.Root>
-              <InputField.Icon icon={KeyRoundIcon} />
-              <InputField.Field
+            <InputContainer.Root>
+              <InputContainer.Icon icon={KeyRoundIcon} />
+              <InputContainer.TextField
                 placeholder="Sua senha de acesso"
                 id="password"
               />
-            </InputField.Root>
+            </InputContainer.Root>
           </InputWrapper.Root>
 
           <button className="mt-9 flex items-center justify-between rounded-xl bg-orange-base p-5 text-white hover:bg-orange-base/95">
@@ -54,7 +54,7 @@ export function SignIn() {
             to="/sign-up"
             className="flex items-center justify-between rounded-xl border-2 border-orange-base bg-white p-5 text-orange-base"
           >
-            Acessar
+            Cadastrar
             <ArrowRightIcon className="h-5 w-5" />
           </Link>
         </div>

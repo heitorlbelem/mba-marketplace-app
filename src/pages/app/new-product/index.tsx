@@ -1,7 +1,7 @@
 import { ImageUpIcon } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
-import { InputField } from '../../../components/InputField'
+import { InputContainer } from '../../../components/InputContainer'
 import { InputWrapper } from '../../../components/InputWrapper'
 
 export function NewProduct() {
@@ -41,28 +41,31 @@ export function NewProduct() {
             <div className="grid grid-cols-[307px_1fr] gap-5">
               <InputWrapper.Root>
                 <InputWrapper.Label htmlFor="title">Título</InputWrapper.Label>
-                <InputField.Root>
-                  <InputField.Field placeholder="Nome do produto" id="title" />
-                </InputField.Root>
+                <InputContainer.Root>
+                  <InputContainer.TextField
+                    placeholder="Nome do produto"
+                    id="title"
+                  />
+                </InputContainer.Root>
               </InputWrapper.Root>
               <InputWrapper.Root>
                 <InputWrapper.Label htmlFor="price">Valor</InputWrapper.Label>
-                <InputField.Root>
-                  <InputField.Prefix prefix="R$" />
-                  <InputField.Field placeholder="0,00" id="price" />
-                </InputField.Root>
+                <InputContainer.Root>
+                  <InputContainer.Prefix prefix="R$" />
+                  <InputContainer.TextField placeholder="0,00" id="price" />
+                </InputContainer.Root>
               </InputWrapper.Root>
               <div className="col-span-2">
                 <InputWrapper.Root>
                   <InputWrapper.Label htmlFor="description">
                     descrição
                   </InputWrapper.Label>
-                  <InputField.Root>
-                    <InputField.TextArea
+                  <InputContainer.Root>
+                    <InputContainer.TextAreaField
                       id="description"
                       placeholder="Escreva detalhes sobre o produto, tamanho, características"
                     />
-                  </InputField.Root>
+                  </InputContainer.Root>
                 </InputWrapper.Root>
               </div>
               <div className="col-span-2">
@@ -70,9 +73,12 @@ export function NewProduct() {
                   <InputWrapper.Label htmlFor="category">
                     categoria
                   </InputWrapper.Label>
-                  <InputField.Root>
-                    <InputField.Field placeholder="Selecione" id="category" />
-                  </InputField.Root>
+                  <InputContainer.Root>
+                    <InputContainer.TextField
+                      placeholder="Selecione"
+                      id="category"
+                    />
+                  </InputContainer.Root>
                 </InputWrapper.Root>
               </div>
             </div>
