@@ -1,4 +1,4 @@
-import { ArrowRightIcon, KeyRoundIcon, MailIcon } from 'lucide-react'
+import { ArrowRightIcon, EyeIcon, KeyRoundIcon, MailIcon } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
@@ -38,6 +38,9 @@ export function SignIn() {
                 placeholder="Sua senha de acesso"
                 id="password"
               />
+              <InputContainer.Actions>
+                <InputContainer.Action icon={EyeIcon} />
+              </InputContainer.Actions>
             </InputContainer.Root>
           </InputWrapper.Root>
 

@@ -1,5 +1,6 @@
 import {
   ArrowRight,
+  EyeIcon,
   ImageUpIcon,
   KeyRoundIcon,
   MailIcon,
@@ -95,6 +96,9 @@ export function SignUp() {
                   id="password"
                   type="password"
                 />
+                <InputContainer.Actions>
+                  <InputContainer.Action icon={EyeIcon} />
+                </InputContainer.Actions>
               </InputContainer.Root>
             </InputWrapper.Root>
 
@@ -109,6 +113,9 @@ export function SignUp() {
                   id="confirm-password"
                   type="password"
                 />
+                <InputContainer.Actions>
+                  <InputContainer.Action icon={EyeIcon} />
+                </InputContainer.Actions>
               </InputContainer.Root>
             </InputWrapper.Root>
           </fieldset>

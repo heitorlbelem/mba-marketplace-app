@@ -74,10 +74,10 @@ export function NewProduct() {
                     categoria
                   </InputWrapper.Label>
                   <InputContainer.Root>
-                    <InputContainer.TextField
-                      placeholder="Selecione"
-                      id="category"
-                    />
+                    <InputContainer.SelectField id="category">
+                      <option value="">Selecione</option>
+                      <option value="mobile">Móvel</option>
+                    </InputContainer.SelectField>
                   </InputContainer.Root>
                 </InputWrapper.Root>
               </div>
