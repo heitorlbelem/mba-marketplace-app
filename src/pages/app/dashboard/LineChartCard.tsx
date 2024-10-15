@@ -1,4 +1,4 @@
-import { UsersIcon } from 'lucide-react'
+import { CalendarIcon, UsersIcon } from 'lucide-react'
 import {
   CartesianGrid,
   Line,
@@ -68,7 +68,10 @@ export function LineChartCard() {
     <div className="flex w-full flex-col gap-7 rounded-[20px] bg-white p-6">
       <header className="flex items-center justify-between">
         <h3 className="font-title text-lg font-bold">Visitantes</h3>
-        <p>26 de junho - 25 de julho</p>
+        <p className="flex items-center gap-2 font-base text-[10px] font-medium uppercase text-gray-300">
+          <CalendarIcon size={16} className="text-blue-dark" />
+          26 de junho - 25 de julho
+        </p>
       </header>
       <ResponsiveContainer width="100%" height={266}>
         <LineChart data={chartData} style={{ fontSize: 12 }}>
