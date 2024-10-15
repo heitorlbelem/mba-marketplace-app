@@ -5,7 +5,7 @@ import { NavLink } from './NavLink'
 
 export function Header() {
   return (
-    <header className="flex items-center justify-between border-b-[1px] border-b-shape p-5">
+    <header className="mx-auto flex max-w-[1366px] items-center justify-between border-b-[1px] border-b-shape p-5">
       <img src={logo} alt="" className="h-10 w-14" />
       <nav className="flex items-center gap-2">
         <NavLink to="/">
