@@ -1,7 +1,13 @@
-import { ElementType } from 'react'
+import { ButtonHTMLAttributes, ElementType } from 'react'
 
-export function Action({ icon: Icon }: { icon: ElementType }) {
+type ActionProps = {
+  icon: ElementType
+} & ButtonHTMLAttributes<HTMLButtonElement>
+
+export function Action({ icon: Icon, ...rest }: ActionProps) {
   return (
-    <Icon size={24} className="h-6 w-6 text-gray-100 hover:cursor-pointer" />
+    <button {...rest} className="h-6 w-6 text-gray-100 hover:cursor-pointer">
+      <Icon size={24} />
+    </button>
   )
 }
