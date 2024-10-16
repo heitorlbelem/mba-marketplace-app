@@ -26,7 +26,10 @@ export function Products() {
             </InputContainer.Root>
             <InputContainer.Root>
               <InputContainer.Icon icon={TicketPercent} />
-              <InputContainer.TextField placeholder="Status" />
+              <InputContainer.SelectField id="status">
+                <option value="">Status</option>
+                <option value="mobile">Anunciado</option>
+              </InputContainer.SelectField>
             </InputContainer.Root>
           </div>
           <button className="flex items-center justify-center rounded-xl bg-orange-base p-5 text-white">
