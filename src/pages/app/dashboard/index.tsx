@@ -9,10 +9,13 @@ export function Dashboard() {
   return (
     <>
       <Helmet title="Página Inicial" />
-      <AppHeader
-        title="Últimos 30 dias"
-        description="Confira as estatísticas da sua loja no último mês"
-      />
+
+      <AppHeader.Root>
+        <AppHeader.Info
+          title="Últimos 30 dias"
+          description="Confira as estatísticas da sua loja no último mês"
+        />
+      </AppHeader.Root>
 
       <div className="flex items-center gap-4">
         <div className="flex flex-col gap-4">

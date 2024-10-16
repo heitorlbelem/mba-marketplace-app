@@ -9,10 +9,13 @@ export function Products() {
   return (
     <>
       <Helmet title="Produtos" />
-      <AppHeader
-        title="Seus produtos"
-        description="Acesse gerencie a sua lista de produtos à venda"
-      />
+
+      <AppHeader.Root>
+        <AppHeader.Info
+          title="Seus produtos"
+          description="Acesse gerencie a sua lista de produtos à venda"
+        />
+      </AppHeader.Root>
 
       <div className="flex items-start gap-4">
         <form className="flex w-[320px] flex-col gap-6 rounded-xl bg-white p-6">

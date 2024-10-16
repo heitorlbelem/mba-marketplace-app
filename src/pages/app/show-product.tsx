@@ -1,18 +1,30 @@
+import { BanIcon, CheckIcon } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
-import { AppHeader } from '../../../components/AppHeader'
-import { FileInput } from '../../../components/FileInput'
-import { InputContainer } from '../../../components/InputContainer'
-import { InputWrapper } from '../../../components/InputWrapper'
+import { AppHeader } from '../../components/AppHeader'
+import { FileInput } from '../../components/FileInput'
+import { InputContainer } from '../../components/InputContainer'
+import { InputWrapper } from '../../components/InputWrapper'
 
-export function NewProduct() {
+export function ShowProduct() {
   return (
     <>
-      <Helmet title="Novo produto" />
-      <AppHeader
-        title="Novo Produto"
-        description="Cadastre um produto para venda no marketplace"
-      />
+      <Helmet title="Editar produto" />
+      <AppHeader.Root>
+        <AppHeader.NavigateButton />
+        <AppHeader.Info
+          title="Editar produto"
+          description="Gerencie as informações do produto cadastrado"
+        >
+          <AppHeader.Actions>
+            <AppHeader.ActionButton
+              icon={CheckIcon}
+              title="Marcar como vendido"
+            />
+            <AppHeader.ActionButton icon={BanIcon} title="Desativar anúncio" />
+          </AppHeader.Actions>
+        </AppHeader.Info>
+      </AppHeader.Root>
 
       <form action="" className="flex items-start gap-6">
         <FileInput id="product" label="Selecione a imagem do produto" />
@@ -70,7 +82,7 @@ export function NewProduct() {
               Cancelar
             </button>
             <button className="mt-4 flex flex-1 items-center justify-center rounded-xl bg-orange-base p-5 text-white hover:bg-orange-base/95">
-              Salvar e publicar
+              Salvar e atualizar
             </button>
           </div>
         </fieldset>
