@@ -1,7 +1,7 @@
-import { ImageUpIcon } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
 import { AppHeader } from '../../../components/AppHeader'
+import { FileInput } from '../../../components/FileInput'
 import { InputContainer } from '../../../components/InputContainer'
 import { InputWrapper } from '../../../components/InputWrapper'
 
@@ -15,22 +15,7 @@ export function NewProduct() {
       />
 
       <form action="" className="flex items-start gap-6">
-        <div className="relative flex h-96 w-96 flex-col items-center justify-center gap-4 rounded-xl bg-orange-base/10 focus-within:border-2 focus-within:border-orange-base">
-          <label htmlFor="product" className="sr-only">
-            Selecione a imagem do produto
-          </label>
-          <input
-            type="file"
-            name="product"
-            id="product"
-            className="absolute h-full w-full opacity-0 hover:cursor-pointer"
-            accept=".png, .jpeg, .jpg"
-          />
-          <ImageUpIcon className="align-center h-12 w-12 text-orange-base" />
-          <p className="max-w-40 text-center font-base text-sm text-gray-300">
-            Selecione a imagem do produto
-          </p>
-        </div>
+        <FileInput id="product" label="Selecione a imagem do produto" />
 
         <fieldset className="flex-1 rounded-xl bg-white p-8">
           <h3 className="mb-8 font-title text-lg font-bold text-gray-300">

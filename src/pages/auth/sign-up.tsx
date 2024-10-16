@@ -9,6 +9,7 @@ import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 
 import { AuthFormHeader } from '../../components/AuthFormHeader'
+import { FileInput } from '../../components/FileInput'
 import { InputContainer } from '../../components/InputContainer'
 import { InputWrapper } from '../../components/InputWrapper'
 
@@ -29,6 +30,9 @@ export function SignUp() {
             <h2 className="font-title text-lg font-bold text-gray-500">
               Perfil
             </h2>
+
+            <FileInput wrapperSize="sm" />
+
             <InputWrapper.Root>
               <InputWrapper.Label htmlFor="name">nome</InputWrapper.Label>
               <InputContainer.Root>
