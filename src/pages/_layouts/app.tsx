@@ -1,12 +1,48 @@
-import { Outlet } from 'react-router-dom'
+import { BoxIcon, ChartLineIcon, PlusIcon } from 'lucide-react'
+import { Outlet, useNavigate } from 'react-router-dom'
 
-import { Header } from '../../components/Header'
+import logo from '../../assets/logo.svg'
+import { NavLink } from '../../components/NavLink'
 
 export function AppLayout() {
+  const navigate = useNavigate()
+
   return (
-    <div className="min-h-screen w-screen bg-background">
-      <Header />
-      <Outlet />
+    <div className="flex min-h-screen flex-col bg-background">
+      <header className="align-center mx-auto flex w-11/12 justify-between border-b-[1px] border-b-shape p-5">
+        <img src={logo} alt="" className="h-10 w-14" />
+        <nav className="flex items-center gap-2">
+          <NavLink to="/">
+            <ChartLineIcon />
+            Dashboard
+          </NavLink>
+          <NavLink to="/products">
+            <BoxIcon />
+            Produtos
+          </NavLink>
+        </nav>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => {
+              navigate('/products/new')
+            }}
+            className="flex items-center gap-2 rounded-lg bg-orange-base px-4 py-2.5 font-base text-sm text-white"
+          >
+            <PlusIcon />
+            Novo produto
+          </button>
+          <img
+            src="https://github.com/heitorlbelem.png"
+            alt=""
+            className="h-12 w-12 rounded-lg"
+          />
+        </div>
+      </header>
+      <main className="mx-auto my-16 w-full max-w-[1130px]">
+        <div className="flex flex-col gap-10">
+          <Outlet />
+        </div>
+      </main>
     </div>
   )
 }
