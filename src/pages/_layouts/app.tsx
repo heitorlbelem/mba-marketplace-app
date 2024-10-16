@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from 'react-router-dom'
 
 import logo from '../../assets/logo.svg'
 import { NavLink } from '../../components/NavLink'
+import { UserDialog } from '../../components/UserDialog'
 
 export function AppLayout() {
   const navigate = useNavigate()
@@ -21,6 +22,7 @@ export function AppLayout() {
             Produtos
           </NavLink>
         </nav>
+
         <div className="flex items-center gap-4">
           <button
             onClick={() => {
@@ -31,11 +33,8 @@ export function AppLayout() {
             <PlusIcon />
             Novo produto
           </button>
-          <img
-            src="https://github.com/heitorlbelem.png"
-            alt=""
-            className="h-12 w-12 rounded-lg"
-          />
+
+          <UserDialog />
         </div>
       </header>
       <main className="mx-auto my-16 w-full max-w-[1130px]">
