@@ -5,7 +5,12 @@ type ProductProps = {
   price: number
 }
 
-export function Product({ name, price, description, imageUrl }: ProductProps) {
+export function ProductCard({
+  name,
+  price,
+  description,
+  imageUrl,
+}: ProductProps) {
   return (
     <div className="flex flex-col rounded-lg bg-white p-1">
       <div className="relative">
