@@ -13,7 +13,6 @@ import { useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 
 import { createSeller } from '../../api/create-seller'
-import { signIn } from '../../api/sign-in'
 import { AuthFormHeader } from '../../components/auth-form-header'
 import { FileInput } from '../../components/file-input'
 import { InputContainer } from '../../components/input-container'
