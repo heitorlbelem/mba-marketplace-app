@@ -1,9 +1,25 @@
+import { useMutation } from '@tanstack/react-query'
 import { LogOutIcon } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import { signOut } from '../api/sign-out'
 
 export function UserDialog() {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const userMenuRef = useRef<HTMLDivElement>(null)
+  const navigate = useNavigate()
+
+  const { mutateAsync: signOutFn } = useMutation({
+    mutationFn: signOut,
+    onSuccess: () => {
+      navigate('/sign-in', { replace: true })
+    },
+  })
+
+  async function handleSignOut() {
+    await signOutFn()
+  }
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -51,7 +67,10 @@ export function UserDialog() {
               Heitor Belém
             </p>
           </div>
-          <button className="flex w-full items-center justify-between font-base text-sm font-medium text-rose-500 hover:text-rose-600">
+          <button
+            onClick={handleSignOut}
+            className="flex w-full items-center justify-between font-base text-sm font-medium text-rose-500 hover:text-rose-600"
+          >
             Sair
             <LogOutIcon size={18} />
           </button>

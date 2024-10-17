@@ -27,6 +27,9 @@ export function SignIn() {
 
   const { mutateAsync: authenticate } = useMutation({
     mutationFn: signIn,
+    onSuccess: () => {
+      navigate('/')
+    },
   })
 
   async function handleSignIn(data: SignInFormType) {
