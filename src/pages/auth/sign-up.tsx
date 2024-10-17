@@ -1,3 +1,5 @@
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useMutation } from '@tanstack/react-query'
 import {
   ArrowRightIcon,
   KeyRoundIcon,
@@ -6,15 +8,42 @@ import {
   UserIcon,
 } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { z } from 'zod'
 
+import { createSeller } from '../../api/create-seller'
+import { signIn } from '../../api/sign-in'
 import { AuthFormHeader } from '../../components/auth-form-header'
 import { FileInput } from '../../components/file-input'
 import { InputContainer } from '../../components/input-container'
 import { InputWrapper } from '../../components/input-wrapper'
 
+const signUpSchema = z.object({
+  name: z.string(),
+  phone: z.string(),
+  email: z.string().email(),
+  password: z.string().min(6),
+  passwordConfirmation: z.string().min(6),
+})
+
+type SignUpFormType = z.infer<typeof signUpSchema>
+
 export function SignUp() {
   const navigate = useNavigate()
+  const { register, handleSubmit } = useForm<SignUpFormType>({
+    resolver: zodResolver(signUpSchema),
+  })
+
+  const { mutateAsync: signUp } = useMutation({
+    mutationFn: createSeller,
+    onSuccess: () => navigate('/sign-in'),
+  })
+
+  async function handleSignUp(data: SignUpFormType) {
+    const { name, phone, email, password, passwordConfirmation } = data
+    await signUp({ name, phone, email, password, passwordConfirmation })
+  }
 
   return (
     <>
@@ -25,7 +54,10 @@ export function SignUp() {
           pageDescription="Informe os seus dados pessoais e de acesso"
         />
 
-        <form className="flex flex-col gap-12">
+        <form
+          className="flex flex-col gap-12"
+          onSubmit={handleSubmit(handleSignUp)}
+        >
           <fieldset className="flex flex-col gap-5">
             <h2 className="font-title text-lg font-bold text-gray-500">
               Perfil
@@ -37,9 +69,12 @@ export function SignUp() {
               <InputWrapper.Label htmlFor="name">nome</InputWrapper.Label>
               <InputContainer.Root>
                 <InputContainer.Icon icon={UserIcon} />
-                <InputContainer.TextField
-                  id="name"
+                <input
+                  className="flex-1 bg-transparent font-base text-base font-normal text-gray-200 outline-none"
                   placeholder="Seu nome completo"
+                  type="text"
+                  id="name"
+                  {...register('name')}
                 />
               </InputContainer.Root>
             </InputWrapper.Root>
@@ -48,9 +83,12 @@ export function SignUp() {
               <InputWrapper.Label htmlFor="phone">telefone</InputWrapper.Label>
               <InputContainer.Root>
                 <InputContainer.Icon icon={PhoneIcon} />
-                <InputContainer.TextField
-                  id="phone"
+                <input
+                  className="flex-1 bg-transparent font-base text-base font-normal text-gray-200 outline-none"
                   placeholder="(00) 00000-0000"
+                  type="text"
+                  id="phone"
+                  {...register('phone')}
                 />
               </InputContainer.Root>
             </InputWrapper.Root>
@@ -65,9 +103,12 @@ export function SignUp() {
               <InputWrapper.Label htmlFor="email">e-mail</InputWrapper.Label>
               <InputContainer.Root>
                 <InputContainer.Icon icon={MailIcon} />
-                <InputContainer.TextField
+                <input
+                  className="flex-1 bg-transparent font-base text-base font-normal text-gray-200 outline-none"
+                  placeholder="Seu e-mail cadastrado"
+                  type="email"
                   id="email"
-                  placeholder="Seu e-mail de acesso"
+                  {...register('email')}
                 />
               </InputContainer.Root>
             </InputWrapper.Root>
@@ -76,22 +117,28 @@ export function SignUp() {
               <InputWrapper.Label htmlFor="password">senha</InputWrapper.Label>
               <InputContainer.Root>
                 <InputContainer.Icon icon={KeyRoundIcon} />
-                <InputContainer.TextField
+                <input
+                  className="flex-1 bg-transparent font-base text-base font-normal text-gray-200 outline-none"
+                  placeholder="Sua senha de acesso"
+                  type="password"
                   id="password"
-                  placeholder="Senha de acesso"
+                  {...register('password')}
                 />
               </InputContainer.Root>
             </InputWrapper.Root>
 
             <InputWrapper.Root>
-              <InputWrapper.Label htmlFor="confirm-password">
+              <InputWrapper.Label htmlFor="passwordConfirmation">
                 confirmar senha
               </InputWrapper.Label>
               <InputContainer.Root>
                 <InputContainer.Icon icon={KeyRoundIcon} />
-                <InputContainer.TextField
-                  id="confirm-password"
-                  placeholder="Confirme a senha"
+                <input
+                  className="flex-1 bg-transparent font-base text-base font-normal text-gray-200 outline-none"
+                  placeholder="Confirme sua senha"
+                  type="password"
+                  id="passwordConfirmation"
+                  {...register('passwordConfirmation')}
                 />
               </InputContainer.Root>
             </InputWrapper.Root>
