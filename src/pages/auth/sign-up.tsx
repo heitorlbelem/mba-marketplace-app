@@ -7,12 +7,14 @@ import {
   PhoneIcon,
   UserIcon,
 } from 'lucide-react'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 
-import { createSeller } from '../../api/create-seller'
+import { signUp } from '../../api/sign-up'
+import { uploadAttachment } from '../../api/upload-attachment'
 import { AuthFormHeader } from '../../components/auth-form-header'
 import { FileInput } from '../../components/file-input'
 import { InputContainer } from '../../components/input-container'
@@ -29,19 +31,35 @@ const signUpSchema = z.object({
 type SignUpFormType = z.infer<typeof signUpSchema>
 
 export function SignUp() {
+  const [userImage, setUserImage] = useState<File | null>(null)
   const navigate = useNavigate()
   const { register, handleSubmit } = useForm<SignUpFormType>({
     resolver: zodResolver(signUpSchema),
   })
 
-  const { mutateAsync: signUp } = useMutation({
-    mutationFn: createSeller,
+  const { mutateAsync: uploadAttachmentFn } = useMutation({
+    mutationFn: uploadAttachment,
+  })
+  const { mutateAsync: signUpFn } = useMutation({
+    mutationFn: signUp,
     onSuccess: () => navigate('/sign-in'),
   })
 
   async function handleSignUp(data: SignUpFormType) {
     const { name, phone, email, password, passwordConfirmation } = data
-    await signUp({ name, phone, email, password, passwordConfirmation })
+    let avatarId = null
+    if (userImage) {
+      const uploadedAvatar = (await uploadAttachmentFn(userImage)).data
+      avatarId = uploadedAvatar.attachments[0].id
+    }
+    await signUpFn({
+      name,
+      phone,
+      email,
+      password,
+      passwordConfirmation,
+      avatarId,
+    })
   }
 
   return (
@@ -62,7 +80,10 @@ export function SignUp() {
               Perfil
             </h2>
 
-            <FileInput wrapperSize="sm" />
+            <FileInput
+              wrapperSize="sm"
+              onFileChange={(file) => setUserImage(file)}
+            />
 
             <InputWrapper.Root>
               <InputWrapper.Label htmlFor="name">nome</InputWrapper.Label>

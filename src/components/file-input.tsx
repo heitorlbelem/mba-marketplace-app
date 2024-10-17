@@ -18,21 +18,22 @@ const fileInput = tv({
 type FileInputProps = ComponentProps<'input'> &
   VariantProps<typeof fileInput> & {
     label?: string
+    onFileChange: (file: File | null) => void
   }
 
 export function FileInput({
   id,
   wrapperSize,
   label,
+  onFileChange,
   ...props
 }: FileInputProps) {
   const [imagePreview, setImagePreview] = useState<string | null>(null)
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]
-    if (file) {
-      setImagePreview(URL.createObjectURL(file))
-    }
+    const file = event.target.files?.[0] || null
+    setImagePreview(file ? URL.createObjectURL(file) : null)
+    onFileChange(file)
   }
 
   return (
