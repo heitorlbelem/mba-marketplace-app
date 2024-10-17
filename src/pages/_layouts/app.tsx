@@ -2,8 +2,8 @@ import { BoxIcon, ChartLineIcon, PlusIcon } from 'lucide-react'
 import { Outlet, useNavigate } from 'react-router-dom'
 
 import logo from '../../assets/logo.svg'
-import { NavLink } from '../../components/NavLink'
-import { UserDialog } from '../../components/UserDialog'
+import { NavLink } from '../../components/nav-link'
+import { UserDialog } from '../../components/user-dialog'
 
 export function AppLayout() {
   const navigate = useNavigate()

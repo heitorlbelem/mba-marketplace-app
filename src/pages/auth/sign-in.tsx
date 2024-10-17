@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 
 import { signIn } from '../../api/sign-in'
-import { AuthFormHeader } from '../../components/AuthFormHeader'
-import { InputContainer } from '../../components/InputContainer'
-import { InputWrapper } from '../../components/InputWrapper'
+import { AuthFormHeader } from '../../components/auth-form-header'
+import { InputContainer } from '../../components/input-container'
+import { InputWrapper } from '../../components/input-wrapper'
 
 const signInSchema = z.object({
   email: z.string().email(),

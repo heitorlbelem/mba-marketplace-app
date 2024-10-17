@@ -1,6 +1,6 @@
 import { ArrowLeftIcon } from 'lucide-react'
 
-import { NavLink } from '../NavLink'
+import { NavLink } from '../nav-link'
 
 export function NavigateButton() {
   return (

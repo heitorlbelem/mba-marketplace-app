@@ -1,9 +1,9 @@
 import { StoreIcon, TicketPercentIcon, UsersIcon } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
-import { AppHeader } from '../../../components/AppHeader'
-import { LineChartCard } from './LineChartCard'
-import { MetricCard } from './MetricCard'
+import { AppHeader } from '../../../components/app-header'
+import { LineChartCard } from './line-chart-card'
+import { MetricCard } from './metric-card'
 
 export function Dashboard() {
   return (

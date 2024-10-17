@@ -1,9 +1,9 @@
 import { SearchIcon, TicketPercent } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
-import { AppHeader } from '../../../components/AppHeader'
-import { InputContainer } from '../../../components/InputContainer'
-import { Product } from './Product'
+import { AppHeader } from '../../../components/app-header'
+import { InputContainer } from '../../../components/input-container'
+import { Product } from './product'
 
 export function Products() {
   return (

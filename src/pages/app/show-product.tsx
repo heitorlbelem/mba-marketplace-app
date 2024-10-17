@@ -1,10 +1,10 @@
 import { BanIcon, CheckIcon } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
-import { AppHeader } from '../../components/AppHeader'
-import { FileInput } from '../../components/FileInput'
-import { InputContainer } from '../../components/InputContainer'
-import { InputWrapper } from '../../components/InputWrapper'
+import { AppHeader } from '../../components/app-header'
+import { FileInput } from '../../components/file-input'
+import { InputContainer } from '../../components/input-container'
+import { InputWrapper } from '../../components/input-wrapper'
 
 export function ShowProduct() {
   return (

@@ -8,10 +8,10 @@ import {
 import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 
-import { AuthFormHeader } from '../../components/AuthFormHeader'
-import { FileInput } from '../../components/FileInput'
-import { InputContainer } from '../../components/InputContainer'
-import { InputWrapper } from '../../components/InputWrapper'
+import { AuthFormHeader } from '../../components/auth-form-header'
+import { FileInput } from '../../components/file-input'
+import { InputContainer } from '../../components/input-container'
+import { InputWrapper } from '../../components/input-wrapper'
 
 export function SignUp() {
   const navigate = useNavigate()
