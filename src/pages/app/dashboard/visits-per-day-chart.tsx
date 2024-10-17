@@ -38,7 +38,7 @@ const CustomTooltip = ({
   return null
 }
 
-export function LineChartCard() {
+export function VisitsPerDayChart() {
   const { data: chartData } = useQuery({
     queryKey: ['metrics', 'views-per-day'],
     queryFn: getReceivedViewsAmountPerDay,
