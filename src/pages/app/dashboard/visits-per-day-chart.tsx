@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
-import { CalendarIcon, UsersIcon } from 'lucide-react'
+import { CalendarIcon } from 'lucide-react'
 import { useMemo } from 'react'
 import {
   CartesianGrid,
@@ -9,34 +9,12 @@ import {
   LineChart,
   ResponsiveContainer,
   Tooltip,
-  TooltipProps,
   XAxis,
   YAxis,
 } from 'recharts'
 
 import { getReceivedViewsAmountPerDay } from '../../../api/get-received-views-amount-per-day'
-
-const CustomTooltip = ({
-  active,
-  payload,
-  label,
-}: TooltipProps<string, number>) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="flex flex-col gap-2 rounded-xl bg-white p-3 shadow-lg">
-        <p className="font-base text-[10px] uppercase">
-          {format(new Date(label), "dd 'de' MMMM", { locale: ptBR })}
-        </p>
-        <p className="flex items-center gap-2 text-xs text-gray-300">
-          <UsersIcon size={16} />
-          {payload[0].value} visitantes
-        </p>
-      </div>
-    )
-  }
-
-  return null
-}
+import { VisitsPerDayChartTooltip } from './visits-per-day-chart-tooltip'
 
 export function VisitsPerDayChart() {
   const { data: chartData } = useQuery({
@@ -56,10 +34,6 @@ export function VisitsPerDayChart() {
     return `${formattedStartDate} - ${formattedEndDate}`
   }, [chartData])
 
-  function formatMonth(label: string) {
-    return `${format(label, 'dd')}`
-  }
-
   return (
     <div className="flex w-full flex-col gap-7 rounded-[20px] bg-white p-6">
       <header className="flex items-center justify-between">
@@ -77,7 +51,9 @@ export function VisitsPerDayChart() {
             <XAxis
               dataKey="date"
               tickLine={false}
-              tickFormatter={formatMonth}
+              tickFormatter={(label: string) => {
+                return format(label, 'dd')
+              }}
               axisLine={false}
               dy={16}
             />
@@ -95,7 +71,7 @@ export function VisitsPerDayChart() {
               strokeDasharray="15 15"
               vertical={false}
             />
-            <Tooltip content={<CustomTooltip />} />
+            <Tooltip content={<VisitsPerDayChartTooltip />} />
             <Line
               type="monotone"
               dot={false}
