@@ -89,11 +89,9 @@ export function SignUp() {
               <InputWrapper.Label htmlFor="name">nome</InputWrapper.Label>
               <InputContainer.Root>
                 <InputContainer.Icon icon={UserIcon} />
-                <input
-                  className="flex-1 bg-transparent font-base text-base font-normal text-gray-200 outline-none"
-                  placeholder="Seu nome completo"
-                  type="text"
+                <InputContainer.TextField
                   id="name"
+                  placeholder="Seu nome completo"
                   {...register('name')}
                 />
               </InputContainer.Root>
@@ -103,11 +101,9 @@ export function SignUp() {
               <InputWrapper.Label htmlFor="phone">telefone</InputWrapper.Label>
               <InputContainer.Root>
                 <InputContainer.Icon icon={PhoneIcon} />
-                <input
-                  className="flex-1 bg-transparent font-base text-base font-normal text-gray-200 outline-none"
-                  placeholder="(00) 00000-0000"
-                  type="text"
+                <InputContainer.TextField
                   id="phone"
+                  placeholder="(00) 00000-0000"
                   {...register('phone')}
                 />
               </InputContainer.Root>
@@ -123,11 +119,10 @@ export function SignUp() {
               <InputWrapper.Label htmlFor="email">e-mail</InputWrapper.Label>
               <InputContainer.Root>
                 <InputContainer.Icon icon={MailIcon} />
-                <input
-                  className="flex-1 bg-transparent font-base text-base font-normal text-gray-200 outline-none"
-                  placeholder="Seu e-mail cadastrado"
-                  type="email"
+                <InputContainer.TextField
                   id="email"
+                  type="email"
+                  placeholder="Seu e-mail cadastrado"
                   {...register('email')}
                 />
               </InputContainer.Root>
@@ -137,11 +132,10 @@ export function SignUp() {
               <InputWrapper.Label htmlFor="password">senha</InputWrapper.Label>
               <InputContainer.Root>
                 <InputContainer.Icon icon={KeyRoundIcon} />
-                <input
-                  className="flex-1 bg-transparent font-base text-base font-normal text-gray-200 outline-none"
-                  placeholder="Sua senha de acesso"
-                  type="password"
+                <InputContainer.TextField
                   id="password"
+                  type="password"
+                  placeholder="Sua senha de acesso"
                   {...register('password')}
                 />
               </InputContainer.Root>
@@ -153,11 +147,10 @@ export function SignUp() {
               </InputWrapper.Label>
               <InputContainer.Root>
                 <InputContainer.Icon icon={KeyRoundIcon} />
-                <input
-                  className="flex-1 bg-transparent font-base text-base font-normal text-gray-200 outline-none"
-                  placeholder="Confirme sua senha"
-                  type="password"
+                <InputContainer.TextField
                   id="passwordConfirmation"
+                  type="password"
+                  placeholder="Confirme sua senha"
                   {...register('passwordConfirmation')}
                 />
               </InputContainer.Root>
