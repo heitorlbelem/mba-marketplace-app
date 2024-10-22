@@ -1,25 +1,5 @@
 import { api } from '../lib/axios'
-
-interface Attachment {
-  id: string
-  url: string
-}
-
-interface Category {
-  id: string
-  title: string
-  slug: string
-}
-
-interface Product {
-  id: string
-  title: string
-  description: string
-  priceInCents: number
-  status: string
-  attachments: Attachment[]
-  category: Category
-}
+import { Product } from './get-product'
 
 interface ProductsListResponse {
   products: Product[]

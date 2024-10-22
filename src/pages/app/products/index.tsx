@@ -33,6 +33,7 @@ export function Products() {
           {productsListResponse?.products.map((product) => {
             return (
               <ProductCard
+                id={product.id}
                 key={product.id}
                 name={product.title}
                 description={product.description}
